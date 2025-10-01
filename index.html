@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlightB - Book Your Flights</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        
+
+        /* Remove system notice styles */
+        .system-notice {
+            display: none;
+        }
+        
+       
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Flight<span>B</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#flight-selection">Flights</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#footer-contact">Contact</a></li>
+                <li><a href="bookings.php">Booking History</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="login-btn">Login</button>
+                <button class="signup-btn">Sign Up</button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1>Book Your Flight with Ease</h1>
+                <p>Discover Amazing Deals on International Flights</p>
+                <button class="cta-button">Book Now</button>
+            </div>
+            <div class="hero-image">
+                <div class="plane-slideshow">
+                    <div class="plane-slide active" data-index="0">
+                        <img src="images/plane.jpg" alt="Airplane flying" width="600" height="360">
+                    </div>
+                    <div class="plane-slide" data-index="1">
+                        <img src="images/plane2.jpg" alt="Airplane flying" width="600" height="360">
+                    </div>
+                    <div class="plane-slide" data-index="2">
+                        <img src="images/plane3.jpg" alt="Airplane flying" width="600" height="360">
+                    </div>
+                    <div class="plane-slide" data-index="3">
+                        <img src="images/plane4.jpg" alt="Airplane flying" width="600" height="360">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flight Search Section -->
+        <section id="flight-selection" class="flight-search">
+            <div class="section-title">
+                <h2>Find Your Perfect Flight</h2>
+                <p>Select your departure, destination, and travel dates</p>
+            </div>
+            <div class="search-container">
+                <div class="trip-type">
+                    <div class="trip-option active">
+                        <input type="radio" id="round-trip" name="trip-type" checked>
+                        <label for="round-trip">Round Trip</label>
+                    </div>
+                    <div class="trip-option">
+                        <input type="radio" id="one-way" name="trip-type">
+                        <label for="one-way">One Way</label>
+                    </div>
+                </div>
+                
+                <form class="search-form" method="GET">
+                    <div class="form-group">
+                        <label for="departure"><i class="fas fa-plane-departure"></i> From</label>
+                        <select id="departure" name="departure" required>
+                            <option value="" disabled selected>Select departure city</option>
+                            
+                            <optgroup label="Domestic">
+                            <option value="penang">Penang</option>
+                                <option value="kuala-lumpur">Kuala Lumpur</option>
+                            <option value="kota-kinabalu">Kota Kinabalu</option>
+                                <option value="sabah">Sabah</option>
+                                <option value="sarawak">Sarawak</option>
+                            <option value="johor-bahru">Johor Bahru</option>
+                                <option value="langkawi">Langkawi</option>
+                            </optgroup>
+                            
+                            <optgroup label="Asia">
+                                <option value="malaysia">Malaysia</option>
+                                <option value="tokyo">Tokyo</option>
+                                <option value="bangkok">Bangkok</option>
+                                <option value="singapore">Singapore</option>
+                            </optgroup>
+                            
+                            <optgroup label="Europe">
+                                <option value="london">London</option>
+                                <option value="milan">Milan</option>
+                                <option value="rome">Rome</option>
+                                <option value="paris">Paris</option>
+                                <option value="zurich">Zurich</option>
+                                <option value="amsterdam">Amsterdam</option>
+                            </optgroup>
+                            
+                            <optgroup label="North America">
+                                <option value="new-york">New York</option>
+                                <option value="los-angeles">Los Angeles</option>
+                                <option value="san-francisco">San Francisco</option>
+                                <option value="toronto">Toronto</option>
+                                <option value="vancouver">Vancouver</option>
+                                <option value="mexico-city">Mexico City</option>
+                            </optgroup>
+                            
+                            <optgroup label="South America">
+                                <option value="rio-de-janeiro">Rio de Janeiro</option>
+                                <option value="sao-paulo">Sao Paulo</option>
+                                <option value="buenos-aires">Buenos Aires</option>
+                                <option value="lima">Lima</option>
+                                <option value="santiago">Santiago</option>
+                                <option value="bogota">Bogota</option>
+                            </optgroup>
+                            
+                            <optgroup label="Africa">
+                                <option value="cairo">Cairo</option>
+                                <option value="casablanca">Casablanca</option>
+                                <option value="marrakech">Marrakech</option>
+                                <option value="cape-town">Cape Town</option>
+                                <option value="johannesburg">Johannesburg</option>
+                                <option value="nairobi">Nairobi</option>
+                            </optgroup>
+                            
+                            <optgroup label="Oceania">
+                                <option value="melbourne">Melbourne</option>
+                                <option value="perth">Perth</option>
+                                <option value="sydney">Sydney</option>
+                                <option value="brisbane">Brisbane</option>
+                                <option value="auckland">Auckland</option>
+                                <option value="christchurch">Christchurch</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="destination"><i class="fas fa-plane-arrival"></i> To</label>
+                        <select id="destination" name="destination">
+                            <option value="" disabled selected>Select destination city</option>
+                            
+                            <optgroup label="Domestic">
+                            <option value="penang">Penang</option>
+                                <option value="kuala-lumpur">Kuala Lumpur</option>
+                            <option value="kota-kinabalu">Kota Kinabalu</option>
+                                <option value="sabah">Sabah</option>
+                                <option value="sarawak">Sarawak</option>
+                            <option value="johor-bahru">Johor Bahru</option>
+                                <option value="langkawi">Langkawi</option>
+                            </optgroup>
+                            
+                            <optgroup label="Asia">
+                                <option value="malaysia">Malaysia</option>
+                                <option value="tokyo">Tokyo</option>
+                                <option value="bangkok">Bangkok</option>
+                                <option value="singapore">Singapore</option>
+                            </optgroup>
+                            
+                            <optgroup label="Europe">
+                                <option value="london">London</option>
+                                <option value="milan">Milan</option>
+                                <option value="rome">Rome</option>
+                                <option value="paris">Paris</option>
+                                <option value="zurich">Zurich</option>
+                                <option value="amsterdam">Amsterdam</option>
+                            </optgroup>
+                            
+                            <optgroup label="North America">
+                                <option value="new-york">New York</option>
+                                <option value="los-angeles">Los Angeles</option>
+                                <option value="san-francisco">San Francisco</option>
+                                <option value="toronto">Toronto</option>
+                                <option value="vancouver">Vancouver</option>
+                                <option value="mexico-city">Mexico City</option>
+                            </optgroup>
+                            
+                            <optgroup label="South America">
+                                <option value="rio-de-janeiro">Rio de Janeiro</option>
+                                <option value="sao-paulo">Sao Paulo</option>
+                                <option value="buenos-aires">Buenos Aires</option>
+                                <option value="lima">Lima</option>
+                                <option value="santiago">Santiago</option>
+                                <option value="bogota">Bogota</option>
+                            </optgroup>
+                            
+                            <optgroup label="Africa">
+                                <option value="cairo">Cairo</option>
+                                <option value="casablanca">Casablanca</option>
+                                <option value="marrakech">Marrakech</option>
+                                <option value="cape-town">Cape Town</option>
+                                <option value="johannesburg">Johannesburg</option>
+                                <option value="nairobi">Nairobi</option>
+                            </optgroup>
+                            
+                            <optgroup label="Oceania">
+                                <option value="melbourne">Melbourne</option>
+                                <option value="perth">Perth</option>
+                                <option value="sydney">Sydney</option>
+                                <option value="brisbane">Brisbane</option>
+                                <option value="auckland">Auckland</option>
+                                <option value="christchurch">Christchurch</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="departure-date"><i class="far fa-calendar-alt"></i> Departure</label>
+                        <input type="date" id="departure-date" name="departure-date">
+                    </div>
+                    
+                    <div class="form-group return-date">
+                        <label for="return-date"><i class="far fa-calendar-alt"></i> Return</label>
+                        <input type="date" id="return-date" name="return-date">
+                    </div>
+                    
+                    <div class="form-group passenger-selection">
+                        <label for="passenger-toggle"><i class="fas fa-users"></i> Passengers & Class</label>
+                        <div class="passenger-toggle" id="passenger-toggle">
+                            <span class="passenger-summary">1 Adult, Economy</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        
+                        <div class="passenger-dropdown">
+                            <div class="passenger-dropdown-content">
+                                <p class="passenger-instruction">Please select the exact number of passengers to view the best prices</p>
+                                
+                                <!-- Adults -->
+                                <div class="passenger-type-row">
+                                    <div class="passenger-type">
+                                        <h4>Adults</h4>
+                                        <p class="age-description">12+ years old</p>
+                                    </div>
+                                    <div class="passenger-count-control">
+                                        <button type="button" class="decrement-btn" data-type="adults">−</button>
+                                        <span id="adults-count" class="passenger-count">1</span>
+                                        <button type="button" class="increment-btn" data-type="adults">+</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Children -->
+                                <div class="passenger-type-row">
+                                    <div class="passenger-type">
+                                        <h4>Children</h4>
+                                        <p class="age-description">2-11 years old</p>
+                                    </div>
+                                    <div class="passenger-count-control">
+                                        <button type="button" class="decrement-btn" data-type="children">−</button>
+                                        <span id="children-count" class="passenger-count">0</span>
+                                        <button type="button" class="increment-btn" data-type="children">+</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Infants -->
+                                <div class="passenger-type-row">
+                                    <div class="passenger-type">
+                                        <h4>Infants on lap</h4>
+                                        <p class="age-description">Under 2 years old</p>
+                                    </div>
+                                    <div class="passenger-count-control">
+                                        <button type="button" class="decrement-btn" data-type="infants">−</button>
+                                        <span id="infants-count" class="passenger-count">0</span>
+                                        <button type="button" class="increment-btn" data-type="infants">+</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Travel Class Selection -->
+                                <div class="travel-class-selection">
+                                    <select id="travel-class" class="travel-class-dropdown">
+                                        <option value="economy">Economy</option>
+                                        <option value="premium-economy">Premium Economy</option>
+                                        <option value="business">Business</option>
+                                        <option value="first">First Class</option>
+                        </select>
+                    </div>
+                    
+                                <!-- Confirm Button -->
+                                <button type="button" class="confirm-passengers-btn">Confirm</button>
+                </div>
+                        </div>
+                        
+                        <!-- Hidden fields to store values -->
+                        <input type="hidden" name="adults" id="adults" value="1">
+                        <input type="hidden" name="children" id="children" value="0">
+                        <input type="hidden" name="infants" id="infants" value="0">
+                        <input type="hidden" name="class" id="class" value="economy">
+                        <input type="hidden" name="passengers" id="passengers" value="1">
+                    </div>
+                    
+                    <button type="submit" class="search-btn">Search Flights</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Available Flights Section (Hidden initially, shown after search) -->
+        <section id="available-flights" class="available-flights hidden">
+            <div class="section-title">
+                <h2>Available Flights</h2>
+                <p>Select the flight that suits your schedule</p>
+            </div>
+            <div class="flights-container">
+           
+            </div>
+        </section>
+
+        <!-- Passenger Details Section (Hidden initially, shown after flight selection) -->
+        <section id="passenger-details" class="passenger-details hidden">
+            <div class="section-title">
+                <h2>Passenger Information</h2>
+                <p>Please provide accurate information for all passengers</p>
+            </div>
+            <div class="booking-progress">
+                <div class="progress-step active">
+                    <div class="step-number">1</div>
+                    <p>Flight Selection</p>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step active">
+                    <div class="step-number">2</div>
+                    <p>Passenger Details</p>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <div class="step-number">3</div>
+                    <p>Seat Selection</p>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <div class="step-number">4</div>
+                    <p>Payment</p>
+                </div>
+            </div>
+            <form id="passenger-form" class="passenger-form">
+              
+                <div class="passenger-card">
+                    <h3>Passenger 1 (Adults)</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <select id="title" name="title" required>
+                                <option value="mr">Mr</option>
+                                <option value="mrs">Mrs</option>
+                                <option value="ms">Ms</option>
+                                <option value="dr">Dr</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dob">Date of Birth</label>
+                            <input type="date" id="dob" name="dob" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nationality">Nationality</label>
+                            <input type="text" id="nationality" name="nationality" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="idType">ID Type</label>
+                            <select id="idType" name="idType" required>
+                                <option value="passport">Passport</option>
+                                <option value="national-id">National ID</option>
+                                <option value="driver-license">Driver's License</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="idNumber">ID Number</label>
+                            <input type="text" id="idNumber" name="idNumber" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-details">
+                    <h3>Contact Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact-email">Email Address</label>
+                            <input type="email" id="contact-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-phone">Phone Number</label>
+                            <input type="tel" id="contact-phone" name="phone" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="back-btn">Back</button>
+                    <button type="button" class="continue-btn">Continue to Seat Selection</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Seat Selection Section (Hidden initially) -->
+        <section id="seat-selection" class="seat-selection hidden">
+            <div class="section-title">
+                <h2>Select Your Seats</h2>
+                <p>Choose your preferred seats for your journey</p>
+            </div>
+            <div class="booking-progress">
+                <div class="progress-step active">
+                    <div class="step-number">1</div>
+                    <p>Flight Selection</p>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step active">
+                    <div class="step-number">2</div>
+                    <p>Passenger Details</p>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step active">
+                    <div class="step-number">3</div>
+                    <p>Seat Selection</p>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <div class="step-number">4</div>
+                    <p>Payment</p>
+                </div>
+            </div>
+            <div class="seat-selection-container">
+                    <div class="seat-legend">
+                        <div class="legend-item">
+                            <div class="seat available"></div>
+                        <span>Available</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="seat selected"></div>
+                        <span>Selected</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="seat occupied"></div>
+                        <span>Occupied</span>
+                        </div>
+                    </div>
+                
+                <div class="seat-map">
+                    <div class="airplane">
+                        <div class="airplane-header">Front of Plane</div>
+                        <div class="seats-grid">
+                         
+                        </div>
+                        <div class="airplane-footer">Back of Plane</div>
+                        </div>
+                        </div>
+                
+                <div class="passenger-seat-selection">
+                    <h3>Seat Assignment</h3>
+                    <div class="passenger-list">
+                        
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="back-btn">Back</button>
+                    <button type="button" class="continue-btn">Continue</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current Promotions Section -->
+        <section id="promotions" class="promotions">
+            <div class="section-title">
+                <h2>Current Promotions</h2>
+                <p>Limited time offers you don't want to miss</p>
+            </div>
+            <div class="promotions-container">
+                <div class="promotion-card">
+                    <div class="promotion-badge">25% OFF</div>
+                    <div class="promotion-image">
+                        <img src="images/asia.jpg" alt="Asia Destinations Promotion">
+                    </div>
+                    <div class="promotion-content">
+                        <h3>Asia Summer Special</h3>
+                        <p>Discover amazing destinations across Asia with our special summer discount</p>
+                        <div class="promotion-details">
+                            <span class="promotion-dates"><i class="far fa-calendar-alt"></i> Valid until Aug 31, 2023</span>
+                            <span class="promotion-code"><i class="fas fa-tag"></i> Code: ASIA25</span>
+                        </div>
+                        <button class="promotion-btn">View Details</button>
+                    </div>
+                </div>
+                
+                <div class="promotion-card">
+                    <div class="promotion-badge">FLASH SALE</div>
+                    <div class="promotion-image">
+                        <img src="images/europe.jpg" alt="Europe Destinations Promotion">
+                    </div>
+                    <div class="promotion-content">
+                        <h3>European Getaway</h3>
+                        <p>Book your dream European vacation with our exclusive flash sale prices</p>
+                        <div class="promotion-details">
+                            <span class="promotion-dates"><i class="far fa-calendar-alt"></i> 48 Hours Only</span>
+                            <span class="promotion-code"><i class="fas fa-tag"></i> Code: EURO48</span>
+                        </div>
+                        <button class="promotion-btn">View Details</button>
+                    </div>
+                </div>
+                
+                <div class="promotion-card">
+                    <div class="promotion-badge">FREE UPGRADE</div>
+                    <div class="promotion-image">
+                        <img src="images/businessc.png" alt="Business Class Upgrade">
+                    </div>
+                    <div class="promotion-content">
+                        <h3>Business Class Upgrade</h3>
+                        <p>Enjoy a complimentary upgrade to Business Class on selected long-haul flights</p>
+                        <div class="promotion-details">
+                            <span class="promotion-dates"><i class="far fa-calendar-alt"></i> Valid until Sept 15, 2023</span>
+                            <span class="promotion-code"><i class="fas fa-tag"></i> Code: BIZUP</span>
+                        </div>
+                        <button class="promotion-btn">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Flight Offers Section -->
+        <section id="upcoming-offers" class="upcoming-offers">
+            <div class="section-title">
+                <h2>Upcoming Flight Offers</h2>
+                <p>Plan ahead with these special upcoming flight deals</p>
+            </div>
+            <div class="offers-slider-container">
+                <div class="offers-slider">
+
+                    <div class="offers-slide">
+                        <div class="offer-card">
+                            <div class="offer-date">
+                                <span class="month">AUG</span>
+                                <span class="day">15</span>
+                            </div>
+                            <div class="offer-content">
+                                <div class="offer-route">
+                                    <span class="departure">KUL</span>
+                                    <i class="fas fa-plane"></i>
+                                    <span class="arrival">LGK</span>
+                                </div>
+                                <h3>Langkawi Island Escape</h3>
+                                <p>Round-trip flights starting at RM199</p>
+                                <div class="offer-features">
+                                    <span><i class="fas fa-suitcase"></i> Free luggage</span>
+                                    <span><i class="fas fa-umbrella-beach"></i> Beach activities</span>
+                                </div>
+                            </div>
+                            <a href="#flight-selection" class="offer-btn" data-departure="kuala-lumpur" data-destination="langkawi" data-date="2025-08-15">Book Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offers-slide">
+                        <div class="offer-card">
+                            <div class="offer-date">
+                                <span class="month">SEP</span>
+                                <span class="day">10</span>
+                            </div>
+                            <div class="offer-content">
+                                <div class="offer-route">
+                                    <span class="departure">KUL</span>
+                                    <i class="fas fa-plane"></i>
+                                    <span class="arrival">BKI</span>
+                                </div>
+                                <h3>Sabah Nature Adventure</h3>
+                                <p>Round-trip flights starting at RM249</p>
+                                <div class="offer-features">
+                                    <span><i class="fas fa-hiking"></i> Hiking packages</span>
+                                    <span><i class="fas fa-mountain"></i> Mt. Kinabalu tours</span>
+                                </div>
+                            </div>
+                            <a href="#flight-selection" class="offer-btn" data-departure="kuala-lumpur" data-destination="sabah" data-date="2025-09-10">Book Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offers-slide">
+                        <div class="offer-card">
+                            <div class="offer-date">
+                                <span class="month">SEP</span>
+                                <span class="day">25</span>
+                            </div>
+                            <div class="offer-content">
+                                <div class="offer-route">
+                                    <span class="departure">KUL</span>
+                                    <i class="fas fa-plane"></i>
+                                    <span class="arrival">KCH</span>
+                                </div>
+                                <h3>Sarawak Cultural Journey</h3>
+                                <p>Round-trip flights starting at RM229</p>
+                                <div class="offer-features">
+                                    <span><i class="fas fa-home"></i> Longhouse stays</span>
+                                    <span><i class="fas fa-drum"></i> Cultural festivals</span>
+                                </div>
+                            </div>
+                            <a href="#flight-selection" class="offer-btn" data-departure="kuala-lumpur" data-destination="sarawak" data-date="2025-09-25">Book Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offers-slide">
+                        <div class="offer-card">
+                            <div class="offer-date">
+                                <span class="month">OCT</span>
+                                <span class="day">15</span>
+                            </div>
+                            <div class="offer-content">
+                                <div class="offer-route">
+                                    <span class="departure">KUL</span>
+                                    <i class="fas fa-plane"></i>
+                                    <span class="arrival">SIN</span>
+                                </div>
+                                <h3>Singapore Getaway</h3>
+                                <p>Round-trip flights starting at RM249</p>
+                                <div class="offer-features">
+                                    <span><i class="fas fa-suitcase"></i> Free luggage</span>
+                                    <span><i class="fas fa-utensils"></i> Meals included</span>
+                                </div>
+                            </div>
+                            <a href="#flight-selection" class="offer-btn" data-departure="kuala-lumpur" data-destination="singapore" data-date="2025-10-15">Book Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offers-slide">
+                        <div class="offer-card">
+                            <div class="offer-date">
+                                <span class="month">NOV</span>
+                                <span class="day">20</span>
+                            </div>
+                            <div class="offer-content">
+                                <div class="offer-route">
+                                    <span class="departure">KUL</span>
+                                    <i class="fas fa-plane"></i>
+                                    <span class="arrival">SYD</span>
+                                </div>
+                                <h3>Sydney Summer</h3>
+                                <p>Round-trip flights starting at RM599</p>
+                                <div class="offer-features">
+                                    <span><i class="fas fa-suitcase"></i> Free luggage</span>
+                                    <span><i class="fas fa-wifi"></i> Wi-Fi included</span>
+                                </div>
+                            </div>
+                            <a href="#flight-selection" class="offer-btn" data-departure="kuala-lumpur" data-destination="sydney" data-date="2025-11-20">Book Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offers-slide">
+                        <div class="offer-card">
+                            <div class="offer-date">
+                                <span class="month">DEC</span>
+                                <span class="day">10</span>
+                            </div>
+                            <div class="offer-content">
+                                <div class="offer-route">
+                                    <span class="departure">KUL</span>
+                                    <i class="fas fa-plane"></i>
+                                    <span class="arrival">LDN</span>
+                                </div>
+                                <h3>London Christmas</h3>
+                                <p>Round-trip flights starting at RM799</p>
+                                <div class="offer-features">
+                                    <span><i class="fas fa-suitcase"></i> Extra baggage</span>
+                                    <span><i class="fas fa-bed"></i> Hotel discounts</span>
+                                </div>
+                            </div>
+                            <a href="#flight-selection" class="offer-btn" data-departure="kuala-lumpur" data-destination="london" data-date="2025-12-10">Book Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="offers-slide">
+                        <div class="offer-card">
+                            <div class="offer-date">
+                                <span class="month">JAN</span>
+                                <span class="day">05</span>
+                            </div>
+                            <div class="offer-content">
+                                <div class="offer-route">
+                                    <span class="departure">KUL</span>
+                                    <i class="fas fa-plane"></i>
+                                    <span class="arrival">BKK</span>
+                                </div>
+                                <h3>Bangkok New Year</h3>
+                                <p>Round-trip flights starting at RM199</p>
+                                <div class="offer-features">
+                                    <span><i class="fas fa-suitcase"></i> Free luggage</span>
+                                    <span><i class="fas fa-glass-cheers"></i> Lounge access</span>
+                                </div>
+                            </div>
+                            <a href="#flight-selection" class="offer-btn" data-departure="kuala-lumpur" data-destination="bangkok" data-date="2026-01-05">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="offers-controls">
+                    <button class="offers-prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="offers-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Travel Tips Section -->
+        <section id="travel-tips" class="travel-tips">
+            <div class="section-title">
+                <h2>Travel Tips & Guides</h2>
+                <p>Expert advice to enhance your travel experience</p>
+            </div>
+            <div class="tips-container">
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-luggage-cart"></i>
+                    </div>
+                    <h3>Packing Essentials</h3>
+                    <div class="tip-content">
+                        <p>Learn how to pack efficiently for any type of journey.</p>
+                        <ul class="tip-list">
+                            <li>Roll clothes to save space</li>
+                            <li>Pack versatile outfits</li>
+                            <li>Bring essential medications</li>
+                        </ul>
+                        <button class="tip-expand">Read More</button>
+                        <div class="tip-expanded">
+                            <p>The key to efficient packing is planning ahead. Make a list of items you'll need and consider the weather and activities at your destination. Use packing cubes to organize your belongings and maximize space in your luggage.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-plane-departure"></i>
+                    </div>
+                    <h3>Airport Navigation</h3>
+                    <div class="tip-content">
+                        <p>Tips for a smooth and stress-free airport experience.</p>
+                        <ul class="tip-list">
+                            <li>Arrive 2-3 hours before flight</li>
+                            <li>Check in online when possible</li>
+                            <li>Keep documents easily accessible</li>
+                        </ul>
+                        <button class="tip-expand">Read More</button>
+                        <div class="tip-expanded">
+                            <p>Navigating airports can be challenging, especially in unfamiliar countries. Download the airport map ahead of time and check which terminal your flight departs from. Consider joining priority boarding programs for a more comfortable experience.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Destination Insights</h3>
+                    <div class="tip-content">
+                        <p>Make the most of your trip with local knowledge.</p>
+                        <ul class="tip-list">
+                            <li>Research local customs</li>
+                            <li>Learn basic local phrases</li>
+                            <li>Identify must-visit attractions</li>
+                        </ul>
+                        <button class="tip-expand">Read More</button>
+                        <div class="tip-expanded">
+                            <p>Understanding the local culture enhances your travel experience. Research local etiquette, dress codes, and cultural norms before your trip. Consider booking tours with local guides to gain authentic insights into your destination.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Destinations Section -->
+        <section class="featured-destinations">
+            <div class="section-title">
+                <h2>Popular Destinations</h2>
+                <p>Explore our most popular flight routes</p>
+            </div>
+            <div class="destinations-slider">
+                <div class="destinations-track">
+                <div class="destination-card">
+                    <div class="destination-img">
+                        <img src="images/kuala-lumpur.jpg" alt="Kuala Lumpur">
+                            <div class="destination-overlay">
+                                <div class="overlay-content">
+                                    <span class="destination-tag">Featured</span>
+                                    <a href="#flight-selection" class="btn-explore">Book Now</a>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="destination-info">
+                        <h3>Kuala Lumpur</h3>
+                        <p>Discover Malaysia's vibrant capital city</p>
+                        <div class="destination-price">
+                            <p>From <span>RM150</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="destination-img">
+                        <img src="images/penang.jpg" alt="Penang">
+                            <div class="destination-overlay">
+                                <div class="overlay-content">
+                                    <span class="destination-tag">Popular</span>
+                                    <a href="#flight-selection" class="btn-explore">Book Now</a>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="destination-info">
+                        <h3>Penang</h3>
+                        <p>Visit Malaysia's food paradise and cultural gem</p>
+                        <div class="destination-price">
+                            <p>From <span>RM180</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="destination-img">
+                        <img src="images/kota-kinabalu.jpg" alt="Kota Kinabalu">
+                            <div class="destination-overlay">
+                                <div class="overlay-content">
+                                    <span class="destination-tag">Top Rated</span>
+                                    <a href="#flight-selection" class="btn-explore">Book Now</a>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="destination-info">
+                        <h3>Kota Kinabalu</h3>
+                        <p>Explore Borneo's gateway to natural beauty</p>
+                        <div class="destination-price">
+                            <p>From <span>RM220</span></p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="destination-card">
+                        <div class="destination-img">
+                            <img src="images/singapore.jpg" alt="Singapore">
+                            <div class="destination-overlay">
+                                <div class="overlay-content">
+                                    <span class="destination-tag">International</span>
+                                    <a href="#flight-selection" class="btn-explore">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="destination-info">
+                            <h3>Singapore</h3>
+                            <p>Experience the Lion City's modern attractions</p>
+                            <div class="destination-price">
+                                <p>From <span>RM320</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="destination-card">
+                        <div class="destination-img">
+                            <img src="images/bangkok.jpg" alt="Bangkok">
+                            <div class="destination-overlay">
+                                <div class="overlay-content">
+                                    <span class="destination-tag">International</span>
+                                    <a href="#flight-selection" class="btn-explore">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="destination-info">
+                            <h3>Bangkok</h3>
+                            <p>Explore Thailand's vibrant capital city</p>
+                            <div class="destination-price">
+                                <p>From <span>RM350</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="destination-card">
+                        <div class="destination-img">
+                            <img src="images/london.jpg" alt="London">
+                            <div class="destination-overlay">
+                                <div class="overlay-content">
+                                    <span class="destination-tag">International</span>
+                                    <a href="#flight-selection" class="btn-explore">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="destination-info">
+                            <h3>London</h3>
+                            <p>Experience the historic charm of England's capital</p>
+                            <div class="destination-price">
+                                <p>From <span>RM2500</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="destination-card">
+                        <div class="destination-img">
+                            <img src="images/tokyo.jpg" alt="Tokyo">
+                            <div class="destination-overlay">
+                                <div class="overlay-content">
+                                    <span class="destination-tag">International</span>
+                                    <a href="#flight-selection" class="btn-explore">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="destination-info">
+                            <h3>Tokyo</h3>
+                            <p>Discover Japan's fascinating blend of tradition and innovation</p>
+                            <div class="destination-price">
+                                <p>From <span>RM1800</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="destination-card">
+                        <div class="destination-img">
+                            <img src="images/newyork.jpg" alt="New York">
+                            <div class="destination-overlay">
+                                <div class="overlay-content">
+                                    <span class="destination-tag">International</span>
+                                    <a href="#flight-selection" class="btn-explore">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="destination-info">
+                            <h3>New York</h3>
+                            <p>Explore the vibrant metropolis that never sleeps</p>
+                            <div class="destination-price">
+                                <p>From <span>RM3200</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="destination-card">
+                        <div class="destination-img">
+                            <img src="images/paris.jpg" alt="Paris">
+                            <div class="destination-overlay">
+                                <div class="overlay-content">
+                                    <span class="destination-tag">International</span>
+                                    <a href="#flight-selection" class="btn-explore">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="destination-info">
+                            <h3>Paris</h3>
+                            <p>Visit the romantic City of Light with iconic landmarks</p>
+                            <div class="destination-price">
+                                <p>From <span>RM2700</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="destination-card">
+                        <div class="destination-img">
+                            <img src="images/langkawi.jpg" alt="Langkawi">
+                            <div class="destination-overlay">
+                                <div class="overlay-content">
+                                    <span class="destination-tag">Island Paradise</span>
+                                    <a href="#flight-selection" class="btn-explore">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="destination-info">
+                            <h3>Langkawi</h3>
+                            <p>Relax on the beautiful beaches of Langkawi</p>
+                            <div class="destination-price">
+                                <p>From <span>RM200</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-prev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+                    <div class="slider-dots"></div>
+                    <button class="slider-next" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section id="about" class="why-choose-us">
+            <div class="section-title">
+                <h2>Why Fly With Us</h2>
+                <p>Experience the best in air travel with FlightB</p>
+            </div>
+            <div class="features-container">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Best Price Guarantee</h3>
+                    <p>We offer the most competitive prices for domestic flights</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Customer Support</h3>
+                    <p>Our dedicated team is available round the clock to assist you</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Modern Fleet</h3>
+                    <p>Fly with comfort in our modern and well-maintained aircraft</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>On-time Departures</h3>
+                    <p>We pride ourselves on punctuality and efficiency</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+                <p>Read about experiences from our satisfied travelers</p>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-profile">
+                        <img src="images/people1.jpg" alt="Customer 1">
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The booking process was so simple and straightforward. I had my tickets in minutes!"</p>
+                        <h4>Vincent Chong</h4>
+                        <p class="testimonial-location">Kuala Lumpur, Malaysia</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-profile">
+                        <img src="images/people2.jpg" alt="Customer 2">
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p>"I love how easy it is to select seats and customize my travel experience. Great service!"</p>
+                        <h4>Ahmad Rizal</h4>
+                        <p class="testimonial-location">Penang, Malaysia</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-profile">
+                        <img src="images/people3.png" alt="Customer 3">
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The email confirmation with all flight details arrived instantly. Very professional service!"</p>
+                        <h4>Sim Jia Siang</h4>
+                        <p class="testimonial-location">Johor Bahru, Malaysia</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About FlightB</h3>
+                <p>FlightB is your trusted partner for affordable and convenient flights. We specialize in connecting you to destinations across the country with comfort and ease.</p>
+                </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#flight-selection">Flights</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#footer-contact">Contact</a></li>
+                    <li><a href="bookings.php">Booking History</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section" id="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Aviation Street, Kuala Lumpur</p>
+                <p><i class="fas fa-phone"></i> +60 3-1234 5678</p>
+                <p><i class="fas fa-envelope"></i> info@flightb.com</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 FlightB. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Login to Your Account</h2>
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="login-password" required>
+                </div>
+                <div class="form-group">
+                    <div class="remember-forgot">
+                        <div class="remember-me-container">
+                            <input type="checkbox" id="remember-me">
+                            <label for="remember-me">Remember me</label>
+                        </div>
+                        <a href="#" id="forgot-password-link">Forgot Password?</a>
+                    </div>
+                </div>
+                <button type="submit" class="login-submit">Login</button>
+                <p class="switch-form">Don't have an account? <a href="#" id="switch-to-signup">Sign Up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div class="modal" id="signup-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Create an Account</h2>
+            <form class="signup-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="signup-firstname">First Name</label>
+                        <input type="text" id="signup-firstname" name="signup-firstname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-lastname">Last Name</label>
+                        <input type="text" id="signup-lastname" name="signup-lastname" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" name="signup-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-phone">Phone Number</label>
+                    <input type="tel" id="signup-phone" name="signup-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" name="signup-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-confirm-password">Confirm Password</label>
+                    <input type="password" id="signup-confirm-password" name="signup-confirm-password" required>
+                </div>
+                <div class="form-group terms">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the <a href="#">Terms and Conditions</a></label>
+                </div>
+                <button type="submit" class="signup-submit">Sign Up</button>
+                <p class="switch-form">Already have an account? <a href="#" id="switch-to-login">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal" id="forgot-password-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Forgot Password</h2>
+            <p>Enter your registered email address below to reset your password.</p>
+            <form class="forgot-password-form">
+                <div class="form-group">
+                    <label for="forgot-email">Email</label>
+                    <input type="email" id="forgot-email" name="forgot-email" required>
+                </div>
+                <button type="submit" class="login-submit">Reset Password</button>
+                <p class="switch-form">Remember your password? <a href="#" id="switch-to-login-from-forgot">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Reset Password Modal -->
+    <div class="modal" id="reset-password-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Reset Password</h2>
+            <p>Enter your email and create a new password.</p>
+            <form class="reset-password-form">
+                <div class="form-group">
+                    <label for="reset-email">Email</label>
+                    <input type="email" id="reset-email" name="reset-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reset-password">New Password</label>
+                    <input type="password" id="reset-password" name="reset-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="reset-confirm-password">Confirm New Password</label>
+                    <input type="password" id="reset-confirm-password" name="reset-confirm-password" required>
+                </div>
+                <input type="hidden" id="reset-token" name="reset-token" value="">
+                <button type="submit" class="login-submit">Save New Password</button>
+                <p class="switch-form">Remember your password? <a href="#" id="switch-to-login-from-reset">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+    
+    </script>
+</body>
+</html> 

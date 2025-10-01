@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation - FlightB</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Font family */
+        body, h1, h2, h3, h4, h5, h6, p, span, div, a, button {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .confirmation-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            margin-top: 150px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .confirmation-header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+
+        .confirmation-icon {
+            font-size: 80px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .booking-reference {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .booking-reference h3 {
+            font-size: 24px;
+            margin: 10px 0 0;
+            color: var(--primary-color);
+        }
+
+        .flight-details, .passenger-details, .payment-details, .booking-section {
+            margin: 25px 0;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            box-sizing: border-box;
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            width: 100%;
+            display: block;
+            margin-left: 0;
+            margin-right: 0;
+            box-sizing: border-box;
+            border-bottom: none;
+            font-weight: 600;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .flight-route {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .flight-city {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .flight-city h3 {
+            margin: 0 0 5px;
+            font-size: 22px;
+            color: var(--text-color);
+        }
+
+        .flight-city p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        .flight-arrow {
+            margin: 0 20px;
+            color: var(--primary-color);
+            font-size: 24px;
+            position: relative;
+        }
+
+        .flight-arrow::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -20px;
+            right: -20px;
+            height: 2px;
+            background-color: #ddd;
+            z-index: 1;
+        }
+
+        .flight-arrow i {
+            background-color: white;
+            padding: 0 10px;
+            position: relative;
+            z-index: 2;
+            transform: rotate(90deg);
+        }
+
+        .flight-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .flight-info-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .passenger-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .passenger-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .total-amount {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            background-color: var(--primary-color);
+            color: white !important;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 0 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            color: white !important;
+        }
+
+        .print-btn {
+            background-color: #6c757d;
+        }
+
+        .print-btn:hover {
+            background-color: #6c757d;
+        }
+
+        .btn:not(.print-btn) {
+            background-color: var(--primary-color);
+        }
+
+        .btn:not(.print-btn):hover {
+            background-color: var(--primary-color);
+        }
+        
+        .booking-section {
+            margin: 25px 0;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .booking-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .email-status {
+            margin-top: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .email-status:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .email-status:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        .email-status i {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+        
+        .email-status strong {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .email-success {
+            background-color: #d4edda;
+            color: #155724;
+            border-left: 4px solid #28a745;
+        }
+        
+        .email-warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .email-info {
+            background-color: #cce5ff;
+            color: #004085;
+            border-left: 4px solid #0d6efd;
+        }
+        
+        /* Email notification styling */
+        .email-status.primary-notification {
+            background-color: #e3f2fd;
+            border: 1px solid #90caf9;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .user-email {
+            padding: 2px 5px;
+            background-color: rgba(0,0,0,0.05);
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        /* Style for when printing is active */
+        body.printing .confirmation-container {
+            box-shadow: none;
+            margin: 0 auto;
+        }
+
+        /* Print-specific styles */
+        @media print {
+            @page {
+                size: auto;
+                margin: 0.5cm;
+            }
+            
+            html, body {
+                background-color: white;
+                margin: 0;
+                padding: 0;
+            }
+            
+            body * {
+                visibility: hidden;
+            }
+            .confirmation-container, .confirmation-container * {
+                visibility: visible;
+            }
+            .confirmation-container {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                margin: 0;
+                padding: 15px;
+                box-shadow: none;
+                border: none;
+            }
+            .btn-container, .confirmation-icon {
+                display: none;
+            }
+            header, footer, .modal, .hamburger {
+                display: none !important;
+            }
+      
+            .flight-details, .passenger-details, .payment-details, .booking-section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                break-inside: avoid;
+            }
+            .flight-info-grid {
+                break-inside: avoid;
+            }
+            .flight-info-item {
+                box-shadow: none;
+                border: 1px solid #eee;
+            }
+            .passenger-item {
+                box-shadow: none;
+                border: 1px solid #eee;
+            }
+            
+            .confirmation-header:before {
+                content: "FlightB Booking Confirmation";
+                display: block;
+                font-size: 18px;
+                margin-bottom: 10px;
+                font-weight: bold;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Flight<span>B</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#flight-selection">Flights</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#footer-contact">Contact</a></li>
+                <li><a href="bookings.php">Booking History</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="login-btn">Login</button>
+                <button class="signup-btn">Sign Up</button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="confirmation-container">
+            <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            
+            <div class="confirmation-header">
+                <h1>Booking Confirmation</h1>
+                <p>Your flight has been booked successfully.</p>
+            </div>
+            
+            <div class="booking-reference">
+                <p>Booking Reference:</p>
+                <h3 id="booking-ref">FB-<span id="random-ref">438921</span></h3>
+            </div>
+            
+            <div class="flight-details">
+                <h2 class="section-title">Flight Details</h2>
+                
+                <div class="flight-route">
+                    <div class="flight-city">
+                        <h3 id="departure-city">Kuala Lumpur</h3>
+                        <p id="departure-code">KUL</p>
+                        <p id="departure-time" style="margin-top: 10px; font-weight: 600; color: var(--primary-color);">10:30 AM</p>
+                    </div>
+                    <div class="flight-arrow">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <div class="flight-city">
+                        <h3 id="arrival-city">Penang</h3>
+                        <p id="arrival-code">PEN</p>
+                        <p id="arrival-time" style="margin-top: 10px; font-weight: 600; color: var(--primary-color);">11:45 AM</p>
+                    </div>
+                </div>
+                
+                <div class="flight-info-grid">
+                    <div class="flight-info-item">
+                <div class="detail-row">
+                    <span class="detail-label">Flight</span>
+                    <span id="flight-number">FB-1001</span>
+                        </div>
+                </div>
+                
+                    <div class="flight-info-item">
+                <div class="detail-row">
+                    <span class="detail-label">Date</span>
+                    <span id="flight-date">June 15, 2023</span>
+                </div>
+                </div>
+                
+                    <div class="flight-info-item" id="return-date-container" style="display: none;">
+                <div class="detail-row">
+                    <span class="detail-label">Return</span>
+                    <span id="return-date">June 20, 2023</span>
+                </div>
+                </div>
+                
+                    <div class="flight-info-item">
+                <div class="detail-row">
+                    <span class="detail-label">Duration</span>
+                    <span id="flight-duration">1h 15m</span>
+                        </div>
+                </div>
+                
+                    <div class="flight-info-item">
+                <div class="detail-row">
+                    <span class="detail-label">Class</span>
+                    <span id="flight-class">Economy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="passenger-details">
+                <h2 class="section-title">Passenger Details</h2>
+                
+                <div class="passenger-item">
+                    <div class="detail-row">
+                        <span class="detail-label">Name</span>
+                        <span id="passenger-name">Ahmad bin Abdullah</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Seat</span>
+                        <span id="passenger-seat">14A</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="payment-details">
+                <h2 class="section-title">Payment Details</h2>
+                
+                <div class="detail-row">
+                    <span class="detail-label">Base Fare</span>
+                    <span id="base-fare">RM 220.00</span>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">Taxes & Fees</span>
+                    <span id="taxes">RM 45.00</span>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">Insurance</span>
+                    <span id="insurance">RM 15.00</span>
+                </div>
+                
+                <div class="detail-row" style="margin-top: 20px; padding-top: 10px; border-top: 1px solid #ddd;">
+                    <span class="detail-label">Total Amount</span>
+                    <span class="total-amount" id="total-amount">RM 280.00</span>
+                </div>
+            </div>
+            
+            <!-- Email Status Section -->
+            <div class="booking-section">
+                <h3>Email Notifications</h3>
+                <div class="email-status-container">
+                  
+                </div>
+            </div>
+            
+            <div class="btn-container">
+                <a href="#" class="btn print-btn" id="print-booking">
+                    <i class="fas fa-print"></i> Print
+                </a>
+                <a href="index.html" class="btn">
+                    Return to Home
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About FlightB</h3>
+                <p>FlightB is your trusted partner for affordable and convenient flights. We specialize in connecting you to destinations across the country with comfort and ease.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#flight-selection">Flights</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#footer-contact">Contact</a></li>
+                    <li><a href="bookings.php">Booking History</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section" id="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Aviation Street, Kuala Lumpur</p>
+                <p><i class="fas fa-phone"></i> +60 3-1234 5678</p>
+                <p><i class="fas fa-envelope"></i> info@flightb.com</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 FlightB. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Login to Your Account</h2>
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="login-password" required>
+                </div>
+                <div class="form-group">
+                    <div class="remember-forgot">
+                        <div class="remember-me-container">
+                            <input type="checkbox" id="remember-me">
+                            <label for="remember-me">Remember me</label>
+                        </div>
+                        <a href="#" id="forgot-password-link">Forgot Password?</a>
+                    </div>
+                </div>
+                <button type="submit" class="login-submit">Login</button>
+                <p class="switch-form">Don't have an account? <a href="#" id="switch-to-signup">Sign Up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div class="modal" id="signup-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Create an Account</h2>
+            <form class="signup-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="signup-firstname">First Name</label>
+                        <input type="text" id="signup-firstname" name="signup-firstname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-lastname">Last Name</label>
+                        <input type="text" id="signup-lastname" name="signup-lastname" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" name="signup-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-phone">Phone Number</label>
+                    <input type="tel" id="signup-phone" name="signup-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" name="signup-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-confirm-password">Confirm Password</label>
+                    <input type="password" id="signup-confirm-password" name="signup-confirm-password" required>
+                </div>
+                <div class="form-group terms">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the <a href="#">Terms and Conditions</a></label>
+                </div>
+                <button type="submit" class="signup-submit">Sign Up</button>
+                <p class="switch-form">Already have an account? <a href="#" id="switch-to-login">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal" id="forgot-password-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Forgot Password</h2>
+            <p>Enter your registered email address below to reset your password.</p>
+            <form class="forgot-password-form">
+                <div class="form-group">
+                    <label for="forgot-email">Email</label>
+                    <input type="email" id="forgot-email" name="forgot-email" required>
+                </div>
+                <button type="submit" class="login-submit">Reset Password</button>
+                <p class="switch-form">Remember your password? <a href="#" id="switch-to-login-from-forgot">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Reset Password Modal -->
+    <div class="modal" id="reset-password-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Reset Password</h2>
+            <p>Enter your email and create a new password.</p>
+            <form class="reset-password-form">
+                <div class="form-group">
+                    <label for="reset-email">Email</label>
+                    <input type="email" id="reset-email" name="reset-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reset-password">New Password</label>
+                    <input type="password" id="reset-password" name="reset-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="reset-confirm-password">Confirm New Password</label>
+                    <input type="password" id="reset-confirm-password" name="reset-confirm-password" required>
+                </div>
+                <input type="hidden" id="reset-token" name="reset-token" value="">
+                <button type="submit" class="login-submit">Save New Password</button>
+                <p class="switch-form">Remember your password? <a href="#" id="switch-to-login-from-reset">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Debug 
+            console.log("---------------- SESSION STORAGE DATA ----------------");
+            Object.keys(sessionStorage).forEach(key => {
+                try {
+                    const value = sessionStorage.getItem(key);
+                 
+                    const displayValue = value.startsWith('{') || value.startsWith('[') ? 
+                                        JSON.parse(value) : value;
+                    console.log(`${key}: `, displayValue);
+                } catch(e) {
+                    console.log(`${key}: ${sessionStorage.getItem(key)} (Error parsing: ${e.message})`);
+                }
+            });
+            console.log("-----------------------------------------------------");
+            
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const bookingRef = urlParams.get('ref');
+            const userEmail = urlParams.get('email') || sessionStorage.getItem('contactEmail') || 'your registered email';
+            const adminEmailStatus = JSON.parse(urlParams.get('adminEmail') || '{"success":false}');
+            const customerEmailStatus = JSON.parse(urlParams.get('customerEmail') || '{"success":false}');
+            
+            // Retrieve booking details from sessionStorage
+            const selectedFlight = JSON.parse(sessionStorage.getItem('selectedFlight') || '{}');
+            
+            // Get information about departure and destination cities 
+            const departureCity = sessionStorage.getItem('departureCity') || 
+                               sessionStorage.getItem('departure') || 
+                               sessionStorage.getItem('flightDeparture') || 
+                               'kuala-lumpur';
+                               
+            const destinationCity = sessionStorage.getItem('destinationCity') || 
+                                 sessionStorage.getItem('destination') || 
+                                 sessionStorage.getItem('flightDestination') || 
+                                 'penang';
+                                 
+            // Use display names when available
+            const departureCityName = sessionStorage.getItem('departureCityName') || formatCityName(departureCity);
+            const destinationCityName = sessionStorage.getItem('destinationCityName') || formatCityName(destinationCity);
+            
+            // Get other details with fallbacks
+            const departureDate = sessionStorage.getItem('departureDate') || 
+                                sessionStorage.getItem('flightDepartureDate') || 
+                                'June 15, 2023';
+                                
+            const returnDate = sessionStorage.getItem('returnDate') || 
+                             sessionStorage.getItem('flightReturnDate') || 
+                             '';
+                            
+            const tripType = sessionStorage.getItem('tripType') || 
+                          sessionStorage.getItem('flightTripType') || 
+                          'one-way';
+                            
+            const selectedClass = sessionStorage.getItem('class') || 
+                              sessionStorage.getItem('flightClass') || 
+                              'Economy';
+                              
+            const adults = parseInt(sessionStorage.getItem('adults') || 
+                                sessionStorage.getItem('flightAdults') || '1');
+                                
+            const children = parseInt(sessionStorage.getItem('children') || 
+                                  sessionStorage.getItem('flightChildren') || '0');
+                                  
+            const infants = parseInt(sessionStorage.getItem('infants') || 
+                                 sessionStorage.getItem('flightInfants') || '0');
+                                 
+            const totalPassengers = adults + children + infants;
+            const passengerDetails = JSON.parse(sessionStorage.getItem('passengerDetails') || '[]');
+            
+
+            console.log("Using values for confirmation page:", {
+                bookingRef,
+                departureCity,
+                destinationCity, 
+                departureCityName,
+                destinationCityName,
+                departureDate,
+                returnDate,
+                tripType,
+                selectedClass,
+                adults,
+                children,
+                infants,
+                totalPassengers
+            });
+            
+       
+            const contactEmail = sessionStorage.getItem('contactEmail') || userEmail;
+            const contactPhone = sessionStorage.getItem('contactPhone') || '';
+            
+            function formatCityName(cityName) {
+                if (!cityName) return '';
+                return cityName
+                    .split('-')
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(' ');
+            }
+            
+            function formatDate(dateString) {
+                if (!dateString) return '';
+                
+                const date = new Date(dateString);
+                if (isNaN(date.getTime())) {
+                    return dateString; 
+                }
+                
+                // Format date Month DD, YYYY
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                return date.toLocaleDateString('en-US', options);
+            }
+            
+            // Get airport codes based on city names
+            function getAirportCode(cityName) {
+                const airportCodes = {
+                    'kuala-lumpur': 'KUL',
+                    'penang': 'PEN',
+                    'kota-kinabalu': 'BKI',
+                    'singapore': 'SIN',
+                    'bangkok': 'BKK',
+                    'tokyo': 'HND',
+                    'london': 'LHR',
+                    'paris': 'CDG',
+                    'amsterdam': 'AMS',
+                    'rome': 'FCO',
+                    'new-york': 'JFK',
+                    'los-angeles': 'LAX',
+                    'toronto': 'YYZ',
+                    'vancouver': 'YVR',
+                    'sydney': 'SYD',
+                    'melbourne': 'MEL',
+                    'auckland': 'AKL'
+                };
+                
+                const normalizedCityName = cityName.toLowerCase().replace(/\s+/g, '-');
+                return airportCodes[normalizedCityName] || 
+                       airportCodes[cityName.toLowerCase()] || 
+                       cityName.substring(0, 3).toUpperCase();
+            }
+            
+            let basePrice = selectedFlight?.price || 220.00;
+            // Apply class multipliers
+            switch(selectedClass.toLowerCase()) {
+                case 'premium-economy':
+                case 'premium economy':
+                    basePrice *= 1.5;
+                    break;
+                case 'business':
+                    basePrice *= 2.5;
+                    break;
+                case 'first':
+                    basePrice *= 4;
+                    break;
+            }
+            
+            // Calculate total fares
+            const baseFare = (basePrice * adults) + (basePrice * 0.75 * children) + (basePrice * 0.1 * infants);
+            const taxesValue = baseFare * 0.12; // 12% taxes
+            const insuranceValue = 15 * totalPassengers; // Insurance per passenger
+            const totalValue = baseFare + taxesValue + insuranceValue;
+            
+            // Format currency values
+            function formatCurrency(value) {
+                return 'RM ' + value.toFixed(2);
+            }
+            
+            const baseFareFormatted = sessionStorage.getItem('baseFare') || formatCurrency(baseFare);
+            const taxesFormatted = sessionStorage.getItem('taxes') || formatCurrency(taxesValue);
+            const insuranceFormatted = sessionStorage.getItem('insurance') || formatCurrency(insuranceValue);
+            const totalAmountFormatted = sessionStorage.getItem('totalAmount') || formatCurrency(totalValue);
+            
+            // Update flight details
+            document.getElementById('departure-city').textContent = formatCityName(departureCityName);
+            document.getElementById('arrival-city').textContent = formatCityName(destinationCityName);
+            document.getElementById('departure-code').textContent = getAirportCode(departureCity);
+            document.getElementById('arrival-code').textContent = getAirportCode(destinationCity);
+            
+            // Update flight times if available
+            if (selectedFlight && selectedFlight.departure_time) {
+                document.getElementById('departure-time').textContent = selectedFlight.departure_time || '10:30 AM';
+                document.getElementById('arrival-time').textContent = selectedFlight.arrival_time || '11:45 AM';
+                document.getElementById('flight-duration').textContent = selectedFlight.duration || '1h 15m';
+                document.getElementById('flight-number').textContent = selectedFlight.flight_number || 'FB-1001';
+            }
+            
+            // Update flight date
+            document.getElementById('flight-date').textContent = formatDate(departureDate);
+            
+            // Update return date if applicable
+            const returnDateContainer = document.getElementById('return-date-container');
+            if (tripType === 'round-trip' && returnDate) {
+                document.getElementById('return-date').textContent = formatDate(returnDate);
+                returnDateContainer.style.display = 'block';
+            } else {
+                returnDateContainer.style.display = 'none';
+            }
+            
+            // Update flight class
+            document.getElementById('flight-class').textContent = selectedClass;
+            
+            // Update payment details
+            document.getElementById('base-fare').textContent = baseFareFormatted;
+            document.getElementById('taxes').textContent = taxesFormatted;
+            document.getElementById('insurance').textContent = insuranceFormatted;
+            document.getElementById('total-amount').textContent = totalAmountFormatted;
+            
+            // Update passenger details
+            const passengerDetailsContainer = document.querySelector('.passenger-details');
+            const passengerTitle = passengerDetailsContainer.querySelector('.section-title');
+            
+            Array.from(passengerDetailsContainer.children).forEach(child => {
+                if (child !== passengerTitle) {
+                    child.remove();
+                }
+            });
+            
+            // Add passenger details from sessionStorage
+            if (passengerDetails && passengerDetails.length > 0) {
+                passengerDetails.forEach((passenger, index) => {
+                    const passengerItem = document.createElement('div');
+                    passengerItem.className = 'passenger-item';
+                    
+                    const nameRow = document.createElement('div');
+                    nameRow.className = 'detail-row';
+                    nameRow.innerHTML = `
+                        <span class="detail-label">Name</span>
+                        <span>${passenger.title || ''} ${passenger.firstName || ''} ${passenger.lastName || ''}</span>
+                    `;
+                    
+                    const typeRow = document.createElement('div');
+                    typeRow.className = 'detail-row';
+                    typeRow.innerHTML = `
+                        <span class="detail-label">Type</span>
+                        <span>${passenger.type || 'Adult'}</span>
+                    `;
+                    
+                    const seatRow = document.createElement('div');
+                    seatRow.className = 'detail-row';
+                    seatRow.innerHTML = `
+                        <span class="detail-label">Seat</span>
+                        <span>${passenger.seat || `${14 + index}A`}</span>
+                    `;
+                    
+                    passengerItem.appendChild(nameRow);
+                    passengerItem.appendChild(typeRow);
+                    passengerItem.appendChild(seatRow);
+                    passengerDetailsContainer.appendChild(passengerItem);
+                });
+            } else {
+                // If no passenger details, show placeholder
+                const passengerItem = document.createElement('div');
+                passengerItem.className = 'passenger-item';
+                passengerItem.innerHTML = `
+                    <div class="detail-row">
+                        <span class="detail-label">Total Passengers</span>
+                        <span>${adults} Adult${adults !== 1 ? 's' : ''}${children ? ', ' + children + ' Child' + (children !== 1 ? 'ren' : '') : ''}${infants ? ', ' + infants + ' Infant' + (infants !== 1 ? 's' : '') : ''}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Class</span>
+                        <span>${selectedClass}</span>
+                    </div>
+                `;
+                passengerDetailsContainer.appendChild(passengerItem);
+            }
+            
+            // Booking reference for the page
+            if (bookingRef) {
+                document.getElementById('booking-ref').textContent = bookingRef;
+            } else {
+                // Generate a random booking reference if not provided
+                const randomRef = 'FB-' + Math.floor(100000 + Math.random() * 900000);
+                document.getElementById('booking-ref').textContent = randomRef;
+            }
+            
+            // Add email status messages
+            const statusContainer = document.querySelector('.email-status-container');
+            
+            if (statusContainer) {
+
+                statusContainer.innerHTML = '';
+                
+                const primaryEmail = contactEmail || userEmail || 'your registered email';
+                
+                const emailSentNotice = document.createElement('div');
+                emailSentNotice.className = 'email-status email-info primary-notification';
+                emailSentNotice.innerHTML = `<i class="fas fa-envelope-open-text"></i> <div>A confirmation email has been sent to <span class="user-email">${primaryEmail}</span><br><small>Please check your inbox and spam folder if you don't see it.</small></div>`;
+                statusContainer.appendChild(emailSentNotice);
+            }
+            
+            // Print booking function
+            document.getElementById('print-booking').addEventListener('click', function(e) {
+                e.preventDefault();
+
+                document.body.classList.add('printing');
+                
+                window.print();
+                
+                setTimeout(function() {
+                    document.body.classList.remove('printing');
+                }, 500);
+                
+                return false;
+            });
+        });
+    </script>
+</body>
+</html> 

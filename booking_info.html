@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Information - FlightB</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .info-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        
+        .info-header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+        
+        .info-section {
+            margin: 25px 0;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        .section-title {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .note-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .steps-list {
+            list-style-type: none;
+            counter-reset: steps-counter;
+            padding-left: 0;
+        }
+        
+        .steps-list li {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 15px;
+            counter-increment: steps-counter;
+        }
+        
+        .steps-list li::before {
+            content: counter(steps-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 28px;
+            height: 28px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Flight<span>B</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#flight-selection">Flights</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#footer-contact">Contact</a></li>
+                <li><a href="bookings.php">Booking History</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="login-btn">Login</button>
+                <button class="signup-btn">Sign Up</button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="info-container">
+            <div class="info-header">
+                <h1>Booking System Information</h1>
+                <p>Important information about our booking process</p>
+            </div>
+            
+            <div class="info-section">
+                <h2 class="section-title">Current System Status</h2>
+                
+                <div class="note-box">
+                    <p><strong>Note:</strong> Our database system (MySQL) is currently under maintenance. We've implemented a temporary solution to demonstrate the booking flow.</p>
+                </div>
+                
+                <p>The booking system is currently operating in demonstration mode. While you can go through the entire booking process, the booking data will not be stored permanently in a database. Instead, we're using a client-side solution to show you how the booking flow works.</p>
+                
+                <p>This temporary solution includes:</p>
+                <ul>
+                    <li>Full flight search and selection interface</li>
+                    <li>Complete passenger information forms</li>
+                    <li>Interactive seat selection</li>
+                    <li>A booking confirmation page with all your details</li>
+                </ul>
+            </div>
+            
+            <div class="info-section">
+                <h2 class="section-title">How to Use the Demo Booking System</h2>
+                
+                <ol class="steps-list">
+                    <li>Search for flights by selecting your departure city, destination, and travel dates</li>
+                    <li>Choose from the available flight options</li>
+                    <li>Fill in your passenger details</li>
+                    <li>Select your preferred seats</li>
+                    <li>Review your booking on the confirmation page</li>
+                </ol>
+                
+                <p>Once the database is fully operational, your bookings will be stored securely, and you'll receive email confirmations for your bookings.</p>
+            </div>
+            
+            <div class="info-section">
+                <h2 class="section-title">Technical Information</h2>
+                
+                <p>The current implementation uses the following technologies:</p>
+                <ul>
+                    <li>Frontend: HTML5, CSS3, JavaScript</li>
+                    <li>Client-side data handling using URL parameters and browser storage</li>
+                    <li>Static confirmation page instead of dynamic database entries</li>
+                </ul>
+                
+                <p>When our MySQL database is back online, we'll restore full functionality including:</p>
+                <ul>
+                    <li>Secure account creation and login</li>
+                    <li>Persistent booking storage</li>
+                    <li>Email notifications</li>
+                    <li>Booking management and history</li>
+                </ul>
+            </div>
+            
+            <div class="btn-container">
+                <a href="index.html" class="btn">Return to Homepage</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <h2>Flight<span>B</span></h2>
+                </div>
+                <p>Your trusted partner for domestic flights. We make travel easy, affordable, and comfortable.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#flight-selection">Book Flight</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#footer-contact">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> 123 KLIA Main Terminal, Sepang, Malaysia</li>
+                    <li><i class="fas fa-phone"></i> +60 3 8777 8888</li>
+                    <li><i class="fas fa-envelope"></i> info@flightb.com</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>We Accept</h3>
+                <div class="payment-methods">
+                    <img src="images/visa.png" alt="Visa">
+                    <img src="images/mastercard.png" alt="Mastercard">
+                    <img src="images/paypal.png" alt="PayPal">
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 FlightB. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Login to Your Account</h2>
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="login-password" required>
+                </div>
+                <div class="form-group">
+                    <div class="remember-forgot">
+                        <div class="remember-me-container">
+                            <input type="checkbox" id="remember-me">
+                            <label for="remember-me">Remember me</label>
+                        </div>
+                        <a href="#" id="forgot-password-link">Forgot Password?</a>
+                    </div>
+                </div>
+                <button type="submit" class="login-submit">Login</button>
+                <p class="switch-form">Don't have an account? <a href="#" id="switch-to-signup">Sign Up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div class="modal" id="signup-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Create an Account</h2>
+            <form class="signup-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="signup-firstname">First Name</label>
+                        <input type="text" id="signup-firstname" name="signup-firstname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-lastname">Last Name</label>
+                        <input type="text" id="signup-lastname" name="signup-lastname" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" name="signup-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-phone">Phone Number</label>
+                    <input type="tel" id="signup-phone" name="signup-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" name="signup-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-confirm-password">Confirm Password</label>
+                    <input type="password" id="signup-confirm-password" name="signup-confirm-password" required>
+                </div>
+                <div class="form-group terms">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the <a href="#">Terms and Conditions</a></label>
+                </div>
+                <button type="submit" class="signup-submit">Sign Up</button>
+                <p class="switch-form">Already have an account? <a href="#" id="switch-to-login">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal" id="forgot-password-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Forgot Password</h2>
+            <p>Enter your email address below and we'll send you a link to reset your password.</p>
+            <form class="forgot-password-form">
+                <div class="form-group">
+                    <label for="forgot-email">Email</label>
+                    <input type="email" id="forgot-email" name="forgot-email" required>
+                </div>
+                <button type="submit" class="login-submit">Reset Password</button>
+                <p class="switch-form">Remember your password? <a href="#" id="switch-to-login-from-forgot">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Reset Password Modal -->
+    <div class="modal" id="reset-password-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Reset Password</h2>
+            <p>Enter your email and create a new password.</p>
+            <form class="reset-password-form">
+                <div class="form-group">
+                    <label for="reset-email">Email</label>
+                    <input type="email" id="reset-email" name="reset-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reset-password">New Password</label>
+                    <input type="password" id="reset-password" name="reset-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="reset-confirm-password">Confirm New Password</label>
+                    <input type="password" id="reset-confirm-password" name="reset-confirm-password" required>
+                </div>
+                <input type="hidden" id="reset-token" name="reset-token" value="">
+                <button type="submit" class="login-submit">Save New Password</button>
+                <p class="switch-form">Remember your password? <a href="#" id="switch-to-login-from-reset">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 
